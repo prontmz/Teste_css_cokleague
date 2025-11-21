@@ -1,0 +1,19 @@
+// Carrossel automático
+const imagens = document.querySelectorAll('.carousel-image');
+let indice = 0;
+
+function mostrarImagem() {
+    imagens.forEach(img => img.classList.remove('active'));
+    imagens[indice].classList.add('active');
+    indice = (indice + 1) % imagens.length;
+}
+
+setInterval(mostrarImagem, 4000); // muda a cada 4 segundos
+
+// Menu Hamburger
+const botaoHamburguer = document.getElementById('botaoHamburguer');
+const menuMobile = document.getElementById('menuMobile');
+
+botaoHamburguer.addEventListener('click', () => {
+    menuMobile.style.display = menuMobile.style.display === 'flex' ? 'none' : 'flex';
+});
