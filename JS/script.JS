@@ -6,3 +6,11 @@ setInterval(() => {
   current = (current + 1) % images.length;
   images[current].classList.add('active');
 }, 3000);
+
+  const botao = document.getElementById('botaoHamburguer');
+  const menu = document.getElementById('menuMobile');
+
+  botao.addEventListener('click', () => {
+    menu.classList.toggle('ativo');
+  });
+

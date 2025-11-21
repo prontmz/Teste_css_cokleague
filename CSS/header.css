@@ -44,8 +44,8 @@
   opacity: 1;
 }
 
-/* ----- NAV ----- */
-.nav {
+/* NAV PRINCIPAL */
+.navegacao {
   position: absolute;
   top: 0;
   width: 100%;
@@ -53,6 +53,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 .logo {
@@ -60,7 +61,7 @@
   width: auto;
 }
 
-/* MENU */
+/* MENU NORMAL (DESKTOP) */
 .menu {
   list-style: none;
   display: flex;
@@ -73,7 +74,6 @@
   background: rgba(0,0,0,0.6);
   color: #fff;
   border-radius: 6px;
-  font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -82,59 +82,36 @@
   background: rgba(255,255,255,0.3);
 }
 
-/* ----- TEXTO EM CIMA DO FUNDO ----- */
-.header h1 {
-  font-size: 3rem;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+/* HAMBÚRGUER (SÓ APARECE NO MOBILE) */
+.botao-hamburguer {
+  display: none;
+  font-size: 35px;
+  cursor: pointer;
+  color: white;
+  user-select: none;
 }
 
-.header p {
-  font-size: 1.2rem;
-  width: 80%;
-  max-width: 850px;
-  margin-top: 10px;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-}
-
-/* ----- RESPONSIVO ----- */
+/* ---------- RESPONSIVO ---------- */
 @media (max-width: 768px) {
-  .nav {
-    padding: 15px 20px;
+  /* mostra ícone hambúrguer */
+  .botao-hamburguer {
+    display: block;
   }
 
-  .logo {
-    height: 45px;
-  }
-
-  .menu li a button {
-    padding: 8px 14px;
-    font-size: 14px;
-  }
-
-  .header h1 {
-    font-size: 2.3rem;
-  }
-
-  .header p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
+  /* esconde menu */
   .menu {
-    gap: 8px;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    padding: 20px;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 10px;
+    display: none; /* escondido inicialmente */
   }
 
-  .menu li a button {
-    padding: 7px 10px;
-    font-size: 13px;
-  }
-
-  .header h1 {
-    font-size: 1.9rem;
-  }
-
-  .header p {
-    width: 90%;
+  .menu.ativo {
+    display: flex; /* aparece ao clicar */
   }
 }
